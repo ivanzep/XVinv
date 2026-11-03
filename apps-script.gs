@@ -2,7 +2,7 @@
  * Google Apps Script backend for confirmar.html (not served by the site; reference only).
  *
  * Setup:
- * 1. Create a Google Sheet. Put these headers in row 1: Fecha | Nombre | Apellido
+ * 1. Create a Google Sheet. Put these headers in row 1: Nombre (A) | Apellido (B)
  * 2. Extensions > Apps Script. Paste this file's code, save.
  * 3. Deploy > New deployment > type "Web app".
  *    Execute as: Me. Who has access: Anyone.
@@ -11,9 +11,8 @@
 function doPost(e) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
   var guests = JSON.parse(e.parameter.invitados || "[]");
-  var now = new Date();
   guests.slice(0, 20).forEach(function (g) {
-    sheet.appendRow([now, String(g.nombre).slice(0, 100), String(g.apellido).slice(0, 100)]);
+    sheet.appendRow([String(g.nombre).slice(0, 100), String(g.apellido).slice(0, 100)]);
   });
   return ContentService.createTextOutput("ok");
 }
