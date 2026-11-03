@@ -7,10 +7,10 @@ what the request asks for.
 ## What this is
 
 A one-page, static, responsive invitation website. No build step, no framework,
-no JS. Deployed as plain files (e.g. GitHub Pages at `/XVinv/xv-kyara/`).
+no JS. Deployed as plain files (e.g. GitHub Pages at `/XVinv/`).
 
 ```
-xv-kyara/
+XVinv/
 ├── index.html            # the whole site (HTML + inline <style>)
 ├── CLAUDE.md             # this file (copy/rename to AGENTS.md if your tool wants that)
 └── assets/
