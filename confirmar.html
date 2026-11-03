@@ -157,8 +157,15 @@
     setStatus("Enviando…");
     var body = new URLSearchParams({ invitados: JSON.stringify(list) });
     fetch(ENDPOINT, { method: "POST", body: body })
-      .then(function (r) { return r.json(); })
-      .then(function (res) {
+      .then(function (r) { return r.text(); })
+      .then(function (txt) {
+        var res;
+        try { res = JSON.parse(txt); }
+        catch (err) {
+          // Older script versions just reply "ok" (saved, no duplicate info).
+          if (txt.trim() === "ok") res = { added: list, duplicates: [] };
+          else throw err;
+        }
         var dups = res.duplicates || [];
         if (!dups.length) {
           document.getElementById("formSection").hidden = true;
@@ -180,9 +187,19 @@
           "Ya estaba registrado: " + names + ". Corrige el nombre o quítalo de la lista.", true);
         sendBtn.disabled = false;
       })
-      .catch(function () {
-        sendBtn.disabled = false;
-        setStatus("No se pudo enviar. Intenta de nuevo.", true);
+      .catch(function (err) {
+        console.error(err);
+        // The reply may be unreadable (browser/CORS) even though the POST arrived.
+        // Resending is safe: the script skips names it already has.
+        fetch(ENDPOINT, { method: "POST", mode: "no-cors", body: body })
+          .then(function () {
+            document.getElementById("formSection").hidden = true;
+            document.getElementById("thanks").hidden = false;
+          })
+          .catch(function () {
+            sendBtn.disabled = false;
+            setStatus("No se pudo enviar. Intenta de nuevo.", true);
+          });
       });
   });
 </script>
