@@ -119,6 +119,9 @@
     renumber();
     return node;
   }
+  function norm(s) {
+    return s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
+  }
   function setStatus(msg, isError) {
     statusEl.textContent = msg;
     statusEl.className = "status" + (isError ? " error" : "");
@@ -141,14 +144,41 @@
     if (bad) { setStatus("Por favor completa nombre y apellido de cada invitado.", true); bad.focus(); return; }
     if (!ENDPOINT) { setStatus("El envío aún no está configurado.", true); return; }
 
+    // Same person twice in this form
+    var keys = {}, dupLocal = null;
+    list.forEach(function (g) {
+      var k = norm(g.nombre) + "|" + norm(g.apellido);
+      if (keys[k] && !dupLocal) dupLocal = g;
+      keys[k] = true;
+    });
+    if (dupLocal) { setStatus(dupLocal.nombre + " " + dupLocal.apellido + " está repetido en esta lista.", true); return; }
+
     sendBtn.disabled = true;
     setStatus("Enviando…");
     var body = new URLSearchParams({ invitados: JSON.stringify(list) });
-    // Apps Script doesn't send CORS headers; no-cors still delivers the POST.
-    fetch(ENDPOINT, { method: "POST", mode: "no-cors", body: body })
-      .then(function () {
-        document.getElementById("formSection").hidden = true;
-        document.getElementById("thanks").hidden = false;
+    fetch(ENDPOINT, { method: "POST", body: body })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        var dups = res.duplicates || [];
+        if (!dups.length) {
+          document.getElementById("formSection").hidden = true;
+          document.getElementById("thanks").hidden = false;
+          return;
+        }
+        // Keep only the rows that were already registered so the guest can fix them.
+        var dupKeys = {};
+        dups.forEach(function (g) { dupKeys[norm(g.nombre) + "|" + norm(g.apellido)] = true; });
+        var rows = guests.querySelectorAll(".guest");
+        rows.forEach(function (row) {
+          var k = norm(row.querySelector('[name="nombre"]').value) + "|" + norm(row.querySelector('[name="apellido"]').value);
+          if (!dupKeys[k] && rows.length > 1) row.remove();
+        });
+        renumber();
+        var names = dups.map(function (g) { return g.nombre + " " + g.apellido; }).join(", ");
+        var okCount = (res.added || []).length;
+        setStatus((okCount ? "Se registraron " + okCount + " invitado(s). " : "") +
+          "Ya estaba registrado: " + names + ". Corrige el nombre o quítalo de la lista.", true);
+        sendBtn.disabled = false;
       })
       .catch(function () {
         sendBtn.disabled = false;
