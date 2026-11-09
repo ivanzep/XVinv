@@ -22,6 +22,7 @@
   .divider { display: flex; align-items: center; gap: .75rem; color: var(--gold); margin: 1.5rem 0; }
   .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--gold-line); }
   .intro { font-style: italic; margin: 0 0 1.5rem; }
+  .deadline { text-transform: uppercase; letter-spacing: .2em; font-size: .9rem; font-weight: 700; color: var(--gold); margin: -.75rem 0 1.5rem; }
   .guest { border: 0; border-bottom: 1px solid var(--line); padding: 1rem 0; margin: 0; }
   .guest legend { text-transform: uppercase; letter-spacing: .25em; font-size: .85rem; color: var(--gold); padding: 0; }
   .fields { display: grid; gap: .9rem; grid-template-columns: 1fr 1fr; text-align: left; margin-top: .5rem; }
@@ -64,6 +65,7 @@
   <section id="formSection">
     <h2>Confirma tu asistencia</h2>
     <p class="intro">Escribe el nombre de cada persona que asistirá.</p>
+    <p class="deadline">Favor de confirmar tu asistencia antes del 26 de noviembre.</p>
 
     <form id="rsvp" novalidate>
       <div id="guests"></div>
