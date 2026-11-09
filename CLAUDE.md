@@ -32,8 +32,8 @@ XVinv/
    image, positioned in **% of the card** so they scale with it:
    | Button | left | top | width | height | href |
    |---|---|---|---|---|---|
-   | VER EN MAPA | 37.1% | 66.75% | 26.2% | 3.05% | Google Maps search for Jardín Blanc, Zona Río, Tijuana |
-   | CONFIRMA TU ASISTENCIA | 27% | 89.4% | 46.1% | 3.85% | `confirmar.html` (RSVP subpage, same tab) |
+   | VER EN MAPA | 35.9% | 63.5% | 28.4% | 2.9% | Google Maps search for Jardín Blanc, Zona Río, Tijuana |
+   | CONFIRMA TU ASISTENCIA | 26.6% | 88.8% | 46.6% | 3.85% | `confirmar.html` (RSVP subpage, same tab) |
    Percentages come from pixel boxes on the 1024×1536 image (x/1024, y/1536).
    Hover/focus is a soft white ring + warm shadow only; never draw a visible button over the art.
 
