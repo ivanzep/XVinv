@@ -35,7 +35,7 @@ XVinv/
    | Button | left | top | width | height | href |
    |---|---|---|---|---|---|
    | VER EN MAPA | 35.9% | 63.5% | 28.4% | 2.9% | Google Maps search for Jardín Blanc, Zona Río, Tijuana |
-   | LISTA DE IDEAS DE REGALO | 48.8% | 75% | 27.3% | 4.2% | `regalos.html` (gift list, same tab; `.hot-gift` extends its tap area to 44 px) |
+   | LISTA DE IDEAS DE REGALO | 48.8% | 75% | 27.3% | 4.2% | `regalos.html` (gift list, opens in a new tab; `.hot-gift` extends its tap area to 44 px) |
    | CONFIRMA TU ASISTENCIA | 26.6% | 88.8% | 46.6% | 3.85% | `confirmar.html` (RSVP subpage, same tab) |
    Percentages come from pixel boxes on the 1024×1536 image (x/1024, y/1536).
    Hover/focus is a soft white ring + warm shadow only; never draw a visible button over the art.
