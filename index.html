@@ -7,7 +7,7 @@
 <meta name="description" content="Mis XV Años — Kyara. 19 de diciembre de 2026, Jardín Blanc, Zona Río, Tijuana.">
 <meta property="og:title" content="Mis XV Años — Kyara">
 <meta property="og:description" content="19 de diciembre de 2026 · Jardín Blanc, Zona Río, Tijuana">
-<meta property="og:image" content="assets/invitacion.jpg">
+<meta property="og:image" content="assets/invitacion.png">
 <style>
   html, body { margin: 0; height: 100%; background: #F4F1EB; }
   main {
@@ -28,6 +28,7 @@
   .hot { position: absolute; display: block; border-radius: 999px; transition: box-shadow .25s ease, background-color .25s ease; }
   .hot:hover { background-color: rgba(255,255,255,.10); box-shadow: 0 0 0 2px rgba(255,255,255,.35), 0 6px 22px rgba(120,86,58,.35); }
   .hot:focus-visible { outline: 2px solid #6e5340; outline-offset: 3px; }
+  .hot-gift::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: max(100%, 44px); transform: translateY(-50%); }
   @media (prefers-reduced-motion: reduce) { .hot { transition: none; } }
 </style>
 </head>
@@ -40,8 +41,9 @@
     <div class="side flip" aria-hidden="true" style="left:100%"></div>
     <div class="side" aria-hidden="true" style="left:200%"></div>
     <div class="side flip" aria-hidden="true" style="left:300%"></div>
-    <img src="assets/invitacion.jpg" alt="Invitación Mis XV Años, Kyara. 19 de diciembre de 2026. Itinerario: Recepción 7:00 PM, Cena 8:00 PM, Fiesta 7:00 PM a 1:00 AM. Lugar: Jardín Blanc, Zona Río, Tijuana. Código de vestimenta: formal. Si deseas regalarme un detalle o un sobre será bien recibido, muchas gracias. Favor de confirmar tu asistencia antes del 26 de noviembre.">
+    <img src="assets/invitacion.png" alt="Invitación Mis XV Años, Kyara. 19 de diciembre de 2026. Itinerario: Recepción 7:00 PM, Cena 8:00 PM, Fiesta 7:00 PM a 1:00 AM. Lugar: Jardín Blanc, Zona Río, Tijuana. Regalos: si deseas regalarme un detalle o un sobre será bien recibido, muchas gracias. Sobre. Lista de ideas de regalo. Favor de confirmar tu asistencia antes del 26 de noviembre.">
     <a class="hot" href="https://www.google.com/maps/search/?api=1&amp;query=Jard%C3%ADn+Blanc+Zona+R%C3%ADo+Tijuana" target="_blank" rel="noopener" aria-label="Ver en mapa: Jardín Blanc, Zona Río, Tijuana" style="left:35.9%;top:63.5%;width:28.4%;height:2.9%"></a>
+    <a class="hot hot-gift" href="regalos.html" aria-label="Lista de ideas de regalo" style="left:48.8%;top:75%;width:27.3%;height:4.2%"></a>
     <a class="hot" href="confirmar.html" aria-label="Confirma tu asistencia" style="left:26.6%;top:88.8%;width:46.6%;height:3.85%"></a>
   </div>
 </main>

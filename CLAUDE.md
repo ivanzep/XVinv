@@ -11,17 +11,19 @@ no JS. Deployed as plain files (e.g. GitHub Pages at `/XVinv/`).
 
 ```
 XVinv/
-├── index.html            # the whole site (HTML + inline <style>)
+├── index.html            # the invitation page (HTML + inline <style>)
+├── confirmar.html        # RSVP form (posts to Google Apps Script)
+├── regalos.html          # gift list gallery (thumbnails in assets/regalos/, logos in assets/logos/)
 ├── CLAUDE.md             # this file (copy/rename to AGENTS.md if your tool wants that)
 └── assets/
-    ├── invitacion.jpg    # 1024×1536 — the finished invitation: art + all text + icons
+    ├── invitacion.png    # 1024×1536 — the finished invitation: art + all text + icons
     └── fondo.png         # 1024×1536 — the same style background with NO text (side fill)
 ```
 
 ## How the page works (don't break this)
 
 1. **`.card`** — a 2:3 box centered in the viewport, sized
-   `width: min(100vw, 100dvh × 2/3)`. It holds `invitacion.jpg` at 100%, so the
+   `width: min(100vw, 100dvh × 2/3)`. It holds `invitacion.png` at 100%, so the
    invitation is always fully visible at any aspect ratio, never cropped or stretched.
 2. **`.side` panels** — six copies of `fondo.png`, each one card wide, placed at
    `left: ±100%, ±200%, ±300%` of the card. The ones at ±100% and ±300% are mirrored
@@ -33,13 +35,14 @@ XVinv/
    | Button | left | top | width | height | href |
    |---|---|---|---|---|---|
    | VER EN MAPA | 35.9% | 63.5% | 28.4% | 2.9% | Google Maps search for Jardín Blanc, Zona Río, Tijuana |
+   | LISTA DE IDEAS DE REGALO | 48.8% | 75% | 27.3% | 4.2% | `regalos.html` (gift list, same tab; `.hot-gift` extends its tap area to 44 px) |
    | CONFIRMA TU ASISTENCIA | 26.6% | 88.8% | 46.6% | 3.85% | `confirmar.html` (RSVP subpage, same tab) |
    Percentages come from pixel boxes on the 1024×1536 image (x/1024, y/1536).
    Hover/focus is a soft white ring + warm shadow only; never draw a visible button over the art.
 
 ## Hard rules
 
-- **Never alter, recrop, recolor, compress or regenerate `invitacion.jpg` or `fondo.png`.**
+- **Never alter, recrop, recolor, compress or regenerate `invitacion.png` or `fondo.png`.**
   Text and icons live *inside* the image on purpose, so the original typography stays exact.
 - Keep the 2:3 ratio and `object-fit: contain`. No `cover`, no fixed px sizes for the card.
 - Keep the background color `#F4F1EB` on `html/body/main` (it matches the paper).
@@ -52,9 +55,9 @@ XVinv/
 
 ## Changing the invitation's content (dates, times, venue, wording)
 
-The text is baked into `invitacion.jpg`. To change it:
+The text is baked into `invitacion.png`. To change it:
 1. Get a new full invitation image from the designer at **1024×1536** (or any exact 2:3 size),
-   with the same layout, and replace `assets/invitacion.jpg`.
+   with the same layout, and replace `assets/invitacion.png`.
 2. If the buttons moved, re-measure them and update the hotspot percentages.
 3. Update the `alt` text, `<title>`, `description` and `og:` meta tags to match.
 Do **not** overlay HTML text on the image to "patch" a word; it won't match the typography.
@@ -97,5 +100,5 @@ Open `index.html` locally and check at least: 390×844 (phone), 768×1024 (table
 1440×900 (laptop), 2560×1080 (ultra-wide). Confirm:
 - the full invitation is visible and centered, nothing is cropped;
 - the side florals fill the gutters with no gaps or blank bands;
-- both hotspots sit exactly over their drawn buttons and open the right links;
+- all three hotspots sit exactly over their drawn buttons and open the right links;
 - no horizontal scrollbar.
