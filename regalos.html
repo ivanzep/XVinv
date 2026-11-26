@@ -40,6 +40,17 @@
   .shop { margin: 0 0 3rem; scroll-margin-top: 1rem; }
   .shop h3 { display: flex; align-items: center; gap: .9rem; text-transform: uppercase; letter-spacing: .3em; font-weight: 500; font-size: 1.05rem; margin: 0 0 1.25rem; }
   .shop h3::after { content: ""; flex: 1; height: 1px; background: var(--gold-line); }
+  .logo { display: block; width: auto; }
+  .shop h3 .logo { height: 2rem; }
+  .jump .logo { height: 1.25rem; }
+  .shop h3 .logo-ulta { height: 2.6rem; }
+  .jump .logo-ulta { height: 1.6rem; }
+  .shop h3 .logo-sephora { height: 1.1rem; }
+  .jump .logo-sephora { height: .7rem; }
+  .shop h3 .word, .jump .word { font-family: Arial, Helvetica, sans-serif; font-weight: 700; letter-spacing: .02em; text-transform: none; color: #000; }
+  .shop h3 .word { font-size: 1.7rem; }
+  .jump .word { font-size: 1.1rem; }
+  .jump a { display: inline-flex; align-items: center; }
   .shop .count { color: var(--gold); letter-spacing: .1em; }
   .store { text-transform: uppercase; letter-spacing: .25em; font-size: .8rem; color: var(--gold); }
   .store { display: none; }
@@ -61,13 +72,12 @@
     <h1>Kyara</h1>
     <div class="divider" aria-hidden="true">✦</div>
     <h2>Lista de regalos</h2>
-    <p class="intro">Si deseas regalarme un detalle, aquí hay algunas ideas. (123 regalos)</p>
-    <p class="intro fine">Precios en dólares (USD), aproximados a finales de noviembre de 2026; pueden cambiar según talla, color o vendedor.</p>
+    <p class="intro">Si deseas regalarme un detalle, aquí hay algunas ideas.</p>
   </header>
 
-  <nav class="jump" aria-label="Tiendas"><a href="#tienda-amazon">Amazon</a> <a href="#tienda-ulta">Ulta</a> <a href="#tienda-elf">e.l.f.</a> <a href="#tienda-sephora">Sephora</a></nav>
+  <nav class="jump" aria-label="Tiendas"><a href="#tienda-amazon"><img class="logo logo-amazon" src="assets/logos/amazon.svg" alt="Amazon"></a> <a href="#tienda-ulta"><img class="logo logo-ulta" src="assets/logos/ulta.svg" alt="Ulta"></a> <a href="#tienda-elf"><span class="word">e.l.f.</span></a> <a href="#tienda-sephora"><img class="logo logo-sephora" src="assets/logos/sephora.svg" alt="Sephora"></a></nav>
   <section class="shop" aria-labelledby="tienda-amazon">
-    <h3 id="tienda-amazon">Amazon <span class="count">(103)</span></h3>
+    <h3 id="tienda-amazon"><img class="logo logo-amazon" src="assets/logos/amazon.svg" alt="Amazon"></h3>
     <ul class="grid">
     <li><a class="gift" href="https://www.amazon.com/dp/B07XF7X5GD" target="_blank" rel="noopener noreferrer" aria-label="Ver regalo en Amazon: Funko Pop!: Ad Icons - Marilyn Monroe (White Dress)"><span class="thumb"><img src="assets/regalos/009.jpg" alt="" loading="lazy" width="360" height="360"></span><span class="store">Amazon</span><span class="name" title="Funko Pop!: Ad Icons - Marilyn Monroe (White Dress)">Funko Pop!: Ad Icons - Marilyn Monroe (White Dress)</span><span class="price">US$36.99</span><span class="go">Ver →</span></a></li>
     <li><a class="gift" href="https://www.amazon.com/dp/B08WR573VY" target="_blank" rel="noopener noreferrer" aria-label="Ver regalo en Amazon: Tangle Angel 2.0 Cepillo desenredante para el cabello, color blanco brillante/rosa"><span class="thumb"><img src="assets/regalos/010.jpg" alt="" loading="lazy" width="360" height="360"></span><span class="store">Amazon</span><span class="name" title="Tangle Angel 2.0 Cepillo desenredante para el cabello, color blanco brillante/rosa">Tangle Angel 2.0 Cepillo desenredante para el cabello, color blanco brillante/rosa</span><span class="price">US$20.50</span><span class="go">Ver →</span></a></li>
@@ -175,7 +185,7 @@
     </ul>
   </section>
   <section class="shop" aria-labelledby="tienda-ulta">
-    <h3 id="tienda-ulta">Ulta <span class="count">(12)</span></h3>
+    <h3 id="tienda-ulta"><img class="logo logo-ulta" src="assets/logos/ulta.svg" alt="Ulta"></h3>
     <ul class="grid">
     <li><a class="gift" href="https://www.ulta.com/p/eyelash-curler-xlsImpprod14351041?sku=2305959" target="_blank" rel="noopener noreferrer" aria-label="Ver regalo en Ulta: Eyelash Curler - Shiseido"><span class="thumb"><img src="assets/regalos/000.jpg" alt="" loading="lazy" width="360" height="360"></span><span class="store">Ulta</span><span class="name" title="Eyelash Curler - Shiseido">Eyelash Curler - Shiseido</span><span class="price">US$29.00</span><span class="go">Ver →</span></a></li>
     <li><a class="gift" href="https://www.ulta.com/p/better-than-sex-volumizing-lengthening-mascara-xlsImpprod5530007?sku=2263444" target="_blank" rel="noopener noreferrer" aria-label="Ver regalo en Ulta: Black Better Than Sex Volumizing &amp; Lengthening Mascara - Too Faced"><span class="thumb"><img src="assets/regalos/001.jpg" alt="" loading="lazy" width="360" height="360"></span><span class="store">Ulta</span><span class="name" title="Black Better Than Sex Volumizing &amp; Lengthening Mascara - Too Faced">Black Better Than Sex Volumizing &amp; Lengthening Mascara - Too Faced</span><span class="price">US$29.00</span><span class="go">Ver →</span></a></li>
@@ -192,7 +202,7 @@
     </ul>
   </section>
   <section class="shop" aria-labelledby="tienda-elf">
-    <h3 id="tienda-elf">e.l.f. <span class="count">(5)</span></h3>
+    <h3 id="tienda-elf"><span class="word">e.l.f.</span></h3>
     <ul class="grid">
     <li><a class="gift" href="https://elfcosmetics.com/products/poreless-putty-primer" target="_blank" rel="noopener noreferrer" aria-label="Ver regalo en e.l.f.: Poreless Putty Primer – Grip, Blur &amp; Perfect"><span class="thumb"><img src="assets/regalos/005.jpg" alt="" loading="lazy" width="360" height="360"></span><span class="store">e.l.f.</span><span class="name" title="Poreless Putty Primer – Grip, Blur &amp; Perfect">Poreless Putty Primer – Grip, Blur &amp; Perfect</span><span class="price">US$11.00</span><span class="go">Ver →</span></a></li>
     <li><a class="gift" href="https://elfcosmetics.com/products/contour-palette" target="_blank" rel="noopener noreferrer" aria-label="Ver regalo en e.l.f.: Powder Contour Palette"><span class="thumb"><img src="assets/regalos/006.jpg" alt="" loading="lazy" width="360" height="360"></span><span class="store">e.l.f.</span><span class="name" title="Powder Contour Palette">Powder Contour Palette</span><span class="price">US$9.00</span><span class="go">Ver →</span></a></li>
@@ -202,7 +212,7 @@
     </ul>
   </section>
   <section class="shop" aria-labelledby="tienda-sephora">
-    <h3 id="tienda-sephora">Sephora <span class="count">(3)</span></h3>
+    <h3 id="tienda-sephora"><img class="logo logo-sephora" src="assets/logos/sephora.svg" alt="Sephora"></h3>
     <ul class="grid">
     <li><a class="gift" href="https://www.sephora.com/product/backstage-face-glow-maximizer-palette-P517565" target="_blank" rel="noopener noreferrer" aria-label="Ver regalo en Sephora: Backstage Glow Maximizer Face Palette - DIOR"><span class="thumb"><img src="assets/regalos/037.jpg" alt="" loading="lazy" width="360" height="360"></span><span class="store">Sephora</span><span class="name" title="Backstage Glow Maximizer Face Palette - DIOR">Backstage Glow Maximizer Face Palette - DIOR</span><span class="price">US$55.00</span><span class="go">Ver →</span></a></li>
     <li><a class="gift" href="https://www.sephora.com/product/dior-lip-glow-oil-hydrating-high-shine-gloss-P519637" target="_blank" rel="noopener noreferrer" aria-label="Ver regalo en Sephora: Lip Glow Oil Hydrating High-Shine Gloss - DIOR"><span class="thumb empty" aria-hidden="true">✦</span><span class="store">Sephora</span><span class="name" title="Lip Glow Oil Hydrating High-Shine Gloss - DIOR">Lip Glow Oil Hydrating High-Shine Gloss - DIOR</span><span class="price">US$42.00</span><span class="go">Ver →</span></a></li>
